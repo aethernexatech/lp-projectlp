@@ -23,7 +23,10 @@ function Produk() {
   return (
     <div className="properties">
       <Container>
-        <AnimationTitles title="Pilih sendiri Hewan Qurban mu." />
+        <AnimationTitles
+          className="title mx-auto"
+          title="Pilih sendiri Hewan Qurban mu."
+        />
         <p>
           Memilih hewan qurban pada Idul Adha bukan hanya soal praktis, tetapi
           juga nilai-nilai mendalam. Keputusan ini mencerminkan keterlibatan dan

@@ -252,7 +252,7 @@ body {
 
 .properties div h1 {
   text-align: left;
-  color: black;
+  color: #597e52;
   margin-bottom: 1rem;
   font-weight: 900;
   font-size: 40px;
@@ -279,7 +279,7 @@ body {
   font-weight: 500;
 }
 .properties div span {
-  color: #00000066;
+  color: #597e52;
 }
 
 .like {
