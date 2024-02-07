@@ -1,26 +1,31 @@
 import { BrowserRouter } from "react-router-dom";
-import AboutUs from "./pages/AboutUs";
+import Investasi from "./pages/Investasi";
 import NavBar from "./components/navbar/Navbar";
-import Developers from "./pages/Developers";
+import Paket from "./pages/Paket";
 import Footer from "./pages/Footer";
-import Join from "./pages/Join";
-import Loading from "./pages/Header";
-import Partners from "./pages/Partners";
-import Properties from "./pages/Properties";
-import Subscribe from "./pages/Subscribe";
+import Keunggulan from "./pages/Keunggulan";
+import Header from "./pages/Header";
+import Faq from "./pages/Faq";
+import Tentang from "./pages/Tentang";
+import Produk from "./pages/Produk";
+import Hubungi from "./pages/Hubungi";
+import Cicilan from "./pages/Cicilan";
+import { Button } from "react-bootstrap";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
-        <Loading />
-        <Partners />
-        <Properties />
-        <AboutUs />
-        <Developers />
-        <Join />
-        <Subscribe />
+        {/* <NavBar /> */}
+        <Header />
+        <Tentang />
+        <Keunggulan />
+        <Investasi />
+        <Produk />
+        <Paket />
+        {/* <Cicilan /> */}
+        <Hubungi />
+        <Faq />
         <Footer />
       </BrowserRouter>
     </>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function AnimationTitles({ title, className }) {
+function AnimationTitlesH2({ title, className }) {
   const hVariants = {
     hidden: {
       opacity: 0,
@@ -23,7 +23,7 @@ function AnimationTitles({ title, className }) {
   };
 
   return (
-    <motion.h1
+    <motion.h2
       variants={hVariants}
       initial="hidden"
       whileInView="visible"
@@ -34,8 +34,8 @@ function AnimationTitles({ title, className }) {
           {char}
         </motion.span>
       ))}
-    </motion.h1>
+    </motion.h2>
   );
 }
 
-export default AnimationTitles;
+export default AnimationTitlesH2;

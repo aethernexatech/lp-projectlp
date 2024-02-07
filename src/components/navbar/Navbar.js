@@ -2,7 +2,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../../images/logo/logo.png";
-import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./navbar.css";
 
@@ -16,23 +15,24 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-            <Nav.Link href="#action1">Marketplace</Nav.Link>
+            <Nav.Link href="#action1"></Nav.Link>
             <Nav.Link href="#action1" className="px-lg-3">
-              About Us
+              Investiasi Sapi
             </Nav.Link>
-            <Nav.Link href="#action1">Developers</Nav.Link>
+            <Nav.Link href="#action1" className="px-lg-3">
+              Gratis Umroh
+            </Nav.Link>
+            <Nav.Link href="#action1">Bersama Palestina 🍉</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <div className="d-flex align-items-center order">
-          <span className="line d-lg-inline-block d-none"></span>
-          <i className="fa-regular fa-heart"></i>
+        {/* <div className="d-flex align-items-center order">
           <Button
             variant="primary"
             className="btn-primary d-none d-lg-inline-block"
           >
             Connect Wallet
           </Button>
-        </div>
+        </div> */}
       </Container>
     </Navbar>
   );
