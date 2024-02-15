@@ -15,7 +15,7 @@ import { Button } from "react-bootstrap";
 function App() {
   return (
     <>
-      <BrowserRouter basename="">
+      <BrowserRouter>
         {/* <NavBar /> */}
         <Header />
         <Tentang />
