@@ -61,24 +61,6 @@ function Investasi() {
                 className="w-100"
               />
             </Col>
-            <Col md={4} className="p-3">
-              <Image
-                src={require("../images/invest/i-1.png")}
-                className="w-100"
-              />
-            </Col>
-            <Col md={4} className="p-3">
-              <Image
-                src={require("../images/invest/i-2.png")}
-                className="w-100"
-              />
-            </Col>
-            <Col md={4} className="p-3">
-              <Image
-                src={require("../images/invest/i-3.png")}
-                className="w-100"
-              />
-            </Col>
           </Row>
         </motion.div>
       </Container>

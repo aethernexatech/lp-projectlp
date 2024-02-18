@@ -123,7 +123,7 @@ body {
 .loading div h1 {
   text-align: left;
   font-weight: 900;
-  color: #f1e4c3;
+  color: #597e52;
 }
 
 .loading div h2 {
@@ -143,6 +143,19 @@ body {
   box-shadow: 0.5px 5px #fbf6ee;
   text-align: center;
   background-color: #43766c;
+}
+
+.loading div button:hover {
+  text-align: left;
+  font-weight: 900;
+  color: white;
+  border: 0;
+  padding-inline: 30px;
+  border-radius: 30px;
+  padding-block: 15px;
+  box-shadow: 0.5px 5px #fbf6ee;
+  text-align: center;
+  background-color: black;
 }
 
 .loading .features {
@@ -168,6 +181,7 @@ body {
 .imageHeader {
   height: 100%;
   width: 100%;
+  /* background-color: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); */
 }
 
 #container-header {
@@ -625,9 +639,12 @@ footer div p {
     object-fit: cover;
     height: 910px;
   }
+  .loading .img-logo {
+    margin-bottom: 25%;
+  }
   #container-header {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;

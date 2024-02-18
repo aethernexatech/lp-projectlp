@@ -4,34 +4,11 @@ import CountDown from "../components/functions/CountDown";
 import { motion } from "framer-motion";
 import AnimationTitles from "../components/functions/AnimationTitles";
 import AnimationTitlesH2 from "../components/functions/AnimationTitlesH2";
-import sapi from "../images/headers/sapi-header.png";
+import sapi from "../images/headers/sapi-header.jpg";
 import { useEffect, useState } from "react";
 
 function Loading() {
   const [isVisible, setIsVisible] = useState(false);
-
-  function like(e) {
-    return e.target.classList.value === "fa-regular fa-heart like"
-      ? (e.target.classList.value = "fa-solid fa-heart like text-danger")
-      : (e.target.classList.value = "fa-regular fa-heart like");
-  }
-  function BackToTopButton() {
-    useEffect(() => {
-      const handleScroll = () => {
-        if (window.pageYOffset > 20) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
-  }
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -49,11 +26,11 @@ function Loading() {
           animate={{ x: 0 }}
           transition={{ duration: 0.2 }}
         >
-          <AnimationTitles title="Bersama Sapi Beli Sapi Jadi Lebih Mudah" />
-          <br />
-          <AnimationTitlesH2 title="Berkah," />
-          <AnimationTitlesH2 title="Maksimal," />
-          <AnimationTitlesH2 title="Sempurna." />
+          <Image
+            src={require("../images/logo/logo.png")}
+            className="img-logo"
+          />
+          <AnimationTitles title="Qurban Pilihan Kita, Berkah untuk Kita Semua" />
           <br />
           <p>
             “Daging-daging unta dan darahnya itu sekali-kali tidak dapat
@@ -67,7 +44,7 @@ function Loading() {
           <Button>Qurban Sekarang!</Button>
         </motion.div>
       </Container>
-      <Button
+      {/* <Button
         // className={`back-to-top-button ${isVisible ? "visible" : ""}`}
         style={{
           position: "fixed",
@@ -85,12 +62,12 @@ function Loading() {
           width={50}
           height={50}
         />
-      </Button>
+      </Button> */}
       <Button
         // className={`back-to-top-button ${isVisible ? "visible" : ""}`}
         style={{
           position: "fixed",
-          bottom: "10%",
+          bottom: "5%",
           right: "3%",
           zIndex: "1",
           backgroundColor: "transparent",
@@ -101,8 +78,8 @@ function Loading() {
       >
         <Image
           src={require("../images/illustration/wa.png")}
-          width={50}
-          height={50}
+          width={70}
+          height={70}
         />
       </Button>
     </div>
