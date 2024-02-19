@@ -44,27 +44,7 @@ function Loading() {
           <Button>Qurban Sekarang!</Button>
         </motion.div>
       </Container>
-      {/* <Button
-        // className={`back-to-top-button ${isVisible ? "visible" : ""}`}
-        style={{
-          position: "fixed",
-          bottom: "3%",
-          right: "3%",
-          zIndex: "1",
-          backgroundColor: "transparent",
-          border: "0px",
-        }}
-        onClick={scrollToTop}
-        title="Go to top"
-      >
-        <Image
-          src={require("../images/illustration/top.png")}
-          width={50}
-          height={50}
-        />
-      </Button> */}
       <Button
-        // className={`back-to-top-button ${isVisible ? "visible" : ""}`}
         style={{
           position: "fixed",
           bottom: "5%",
