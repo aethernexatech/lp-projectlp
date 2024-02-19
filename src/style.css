@@ -583,6 +583,9 @@ footer div p {
     object-fit: cover;
     height: 768px;
   }
+  .loading .img-logo {
+    margin-bottom: 45%;
+  }
   #container-header {
     position: absolute;
     top: 150%;
@@ -603,9 +606,12 @@ footer div p {
     object-fit: cover;
     height: 768px;
   }
+  .loading .img-logo {
+    margin-bottom: 30%;
+  }
   #container-header {
     position: absolute;
-    top: 150%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
@@ -640,7 +646,7 @@ footer div p {
     height: 910px;
   }
   .loading .img-logo {
-    margin-bottom: 25%;
+    margin-bottom: 35%;
   }
   #container-header {
     position: absolute;
