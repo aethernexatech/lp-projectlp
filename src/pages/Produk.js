@@ -11,14 +11,38 @@ import { Pagination, Navigation } from "swiper/modules";
 // import framer motion
 import { motion } from "framer-motion";
 import AnimationTitles from "../components/functions/AnimationTitles";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { formatCurrencyInput, formatNumberWithout } from "../helper";
 
 function Produk() {
-  // Like button of properties
+  const [product, setProduct] = useState([]);
+
   function like(e) {
     return e.target.classList.value === "fa-regular fa-heart like"
       ? (e.target.classList.value = "fa-solid fa-heart like text-danger")
       : (e.target.classList.value = "fa-regular fa-heart like");
   }
+
+  const getProduct = async (param) => {
+    try {
+      const response = await axios(
+        `${process.env.REACT_APP_API_URL}${"product"}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "GET",
+        }
+      );
+
+      setProduct(response.data.data);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getProduct();
+  }, []);
 
   return (
     <div className="properties">
@@ -68,205 +92,48 @@ function Produk() {
             modules={[Pagination, Navigation]}
             className="mySwiper mt-4"
           >
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi1.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Limosin</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
+            {product.map((item, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  {" "}
+                  <Card className="bg-black-100 rounded">
+                    <Card.Body className="p-2">
+                      <div className="rounded overflow-hidden position-relative">
+                        <Card.Img variant="top" alt="img" src={item.image} />
+                        <i
+                          className="fa-regular fa-heart like"
+                          onClick={like}
+                        ></i>
+                      </div>
+                      <h5 className="mt-2 fw-normal">{item.name}</h5>
+                      <div className="d-flex mb-2">
+                        <div className="me-3">
+                          <span className="gray-90">Umur</span>
+                          <h6>2 Tahun</h6>
+                        </div>
+                        <div>
+                          <span className="gray-90">Berat</span>
+                          <h6>
+                            {item.weight} - {item.weight + 30}
+                          </h6>
+                        </div>
+                      </div>
+                      <h4 className=" xl">
+                        {"Rp. "}
+                        {formatNumberWithout(item.price)}
+                      </h4>
 
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi2.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Simental</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi3.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Ongole</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi4.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Braham</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi5.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Bali</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi6.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Madura</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
+                      <Button
+                        className="w-100 mt-4"
+                        style={{ backgroundColor: "#597e52", border: "0px" }}
+                      >
+                        Lihat Detail
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </motion.div>
         <motion.div
@@ -304,211 +171,52 @@ function Produk() {
             modules={[Pagination, Navigation]}
             className="mySwiper mt-4"
           >
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi1.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Limosin</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
+            {product.map((item, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  {" "}
+                  <Card className="bg-black-100 rounded">
+                    <Card.Body className="p-2">
+                      <div className="rounded overflow-hidden position-relative">
+                        <Card.Img variant="top" alt="img" src={item.image} />
+                        <i
+                          className="fa-regular fa-heart like"
+                          onClick={like}
+                        ></i>
+                      </div>
+                      <h5 className="mt-2 fw-normal">{item.name}</h5>
+                      <div className="d-flex mb-2">
+                        <div className="me-3">
+                          <span className="gray-90">Umur</span>
+                          <h6>2 Tahun</h6>
+                        </div>
+                        <div>
+                          <span className="gray-90">Berat</span>
+                          <h6>
+                            {item.weight} - {item.weight + 30}
+                          </h6>
+                        </div>
+                      </div>
+                      <h4 className=" xl">
+                        {"Rp. "}
+                        {formatNumberWithout(item.price)}
+                      </h4>
 
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi2.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Simental</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi3.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Ongole</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi4.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Braham</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi5.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Bali</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
-            <SwiperSlide>
-              {" "}
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-2">
-                  <div className="rounded overflow-hidden position-relative">
-                    <Card.Img
-                      variant="top"
-                      alt="img"
-                      src={require("../images/sapi-product/sapi6.png")}
-                    />
-                    <i className="fa-regular fa-heart like" onClick={like}></i>
-                  </div>
-                  <h5 className="mt-2 fw-normal">Sapi Madura</h5>
-                  <div className="d-flex mb-2">
-                    <div className="me-3">
-                      <span className="gray-90">Umur</span>
-                      <h6>2 Tahun</h6>
-                    </div>
-                    <div>
-                      <span className="gray-90">Berat</span>
-                      <h6>150 - 200 Kg</h6>
-                    </div>
-                  </div>
-                  <h4 className=" xl">Rp 200,000,000</h4>
-                  <Button
-                    className="w-100 mt-4"
-                    style={{ backgroundColor: "#597e52", border: "0px" }}
-                  >
-                    Lihat Detail
-                  </Button>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
+                      <Button
+                        className="w-100 mt-4"
+                        style={{ backgroundColor: "#597e52", border: "0px" }}
+                      >
+                        Lihat Detail
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </motion.div>
-        {/* End cards */}
       </Container>
     </div>
-    // End properties
   );
 }
 

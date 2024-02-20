@@ -6,12 +6,35 @@ import AnimationTitles from "../components/functions/AnimationTitles";
 import AnimationTitlesH2 from "../components/functions/AnimationTitlesH2";
 import sapi from "../images/headers/sapi-header.jpg";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Loading() {
+  const [numberPhone, setNumberPhone] = useState({});
   const [isVisible, setIsVisible] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const getWhatsApp = async () => {
+    try {
+      const response = await axios(
+        `${process.env.REACT_APP_API_URL}${"wa-rotator"}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "GET",
+        }
+      );
+
+      return window.open(
+        `https://wa.me/${response.data.data.phone}`,
+        "_blank",
+        "rel=noopener noreferrer"
+      );
+    } catch (error) {}
   };
 
   return (
@@ -53,7 +76,7 @@ function Loading() {
           backgroundColor: "transparent",
           border: "0px",
         }}
-        onClick={scrollToTop}
+        onClick={() => getWhatsApp()}
         title="Go to top"
       >
         <Image
