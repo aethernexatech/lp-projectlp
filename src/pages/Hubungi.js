@@ -1,8 +1,39 @@
 import { Button, Container, Col, Row, Image, Form } from "react-bootstrap";
 import { motion } from "framer-motion";
 import AnimationTitles from "../components/functions/AnimationTitles";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Hubungi() {
+  const getWhatsApp = async () => {
+    try {
+      const response = await axios(
+        `${process.env.REACT_APP_API_URL}${"contact-us"}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify({
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            message: document.getElementById("message").value,
+            program_id: 1,
+            product_id: 1,
+          }),
+          method: "POST",
+        }
+      );
+
+      return window.open(
+        `https://wa.me/${response.data.data.phone}?text=Halo Saya ${
+          document.getElementById("name").value
+        }, saya ingin bertanya tentang program TernaKita`,
+        "_blank",
+        "rel=noopener noreferrer"
+      );
+    } catch (error) {}
+  };
+
   return (
     <div className="hubungi">
       <Container className="">
@@ -19,18 +50,33 @@ function Hubungi() {
                   Kirimkan pesan kepada kami dan tim kami akan segera
                   menghubungi Anda
                 </p>
-                <Form>
-                  <Form.Control type="text" placeholder="Nama Lengkap" />
-                  <br />
-                  <Form.Control
-                    type="t-sel"
-                    placeholder="Nomor Handphone / WA"
-                  />
-                  <br />
-                  <Button className="w-100 buttonCon" type="submit">
-                    Hubungi
-                  </Button>
-                </Form>
+                <Form.Control
+                  type="text"
+                  placeholder="Nama Lengkap"
+                  id="name"
+                />
+                <br />
+                <Form.Control
+                  type="number"
+                  id="phone"
+                  maxLength={12}
+                  placeholder="Nomor Handphone / WA"
+                />
+                <br />
+                <Form.Control
+                  type="text"
+                  id="message"
+                  maxLength={12}
+                  placeholder="Pesan"
+                />
+                <br />
+                <Button
+                  className="w-100 buttonCon"
+                  type="submit"
+                  onClick={() => getWhatsApp()}
+                >
+                  Hubungi
+                </Button>
               </Col>
             </Col>
             <Col xl={5} className="align-self-center">
