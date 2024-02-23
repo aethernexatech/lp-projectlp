@@ -20,13 +20,13 @@ function Footer() {
         transition={{ duration: 0.2 }}
         className="d-flex justify-content-between flex-column flex-md-row flex-wrap gray-100 pt-3 line-top"
       >
-        <p>© 2023 AthernaNexa. All rights reserved</p>
+        <p>© 2024 PT Ekis Muda Berkarya. All rights reserved</p>
         <p>
           Bantuan
           {" | "}
           Syarat Ketentuan {" | "} Design by{" "}
           <Link className="text-white link-underline-opacity-0" to={""}>
-            Husnul
+            AthernaNexa
           </Link>
         </p>
       </motion.div>
