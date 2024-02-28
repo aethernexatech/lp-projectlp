@@ -193,7 +193,7 @@ function Produk() {
                         <div>
                           <span className="gray-90">Berat</span>
                           <h6>
-                            {item.weight} - {item.weight + 30}
+                            {item.weight} - {item.weight + 99}
                           </h6>
                         </div>
                       </div>
