@@ -13,9 +13,11 @@ function Paket() {
           transition={{ duration: 0.2 }}
         >
           <Row className="d-flex align-item-start">
-            <Col md={4} className="align-item-start px-5">
-              <AnimationTitles title="Paket Promo dan Bonus." />
-              <p>
+            <Col md={4} className="mt-5 text-center text-lg-start">
+            <AnimationTitles size="25px" weight="700">
+                <span style={{ color: '#6b8b65' }}>Promo & Bonus</span>&nbsp;
+              </AnimationTitles>
+              <p className="mt-3 text-center text-lg-start">
                 Raih kesempatan istimewa dengan promo dan bonus menarik saat
                 Anda membeli sapi dari kami. Jangan lewatkan kesempatan ini
                 untuk mendapatkan lebih dari yang Anda bayangkan.

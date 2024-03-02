@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Col, Card, Row, Image } from "react-bootstrap";
 import AnimationTitles from "../components/functions/AnimationTitles";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -5,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
-// import framer motion
 
 function Cicilan() {
   function like(e) {
@@ -16,36 +16,29 @@ function Cicilan() {
 
   return (
     <div className="subscribe">
-      <Row className="d-flex align-item-start">
-        {/* <Col md={1} /> */}
-        <Col md={5} className="align-item-start px-5">
-          <AnimationTitles title="Program Cicilan" />
+      <Row className="d-flex align-items-start">
+        <Col xs={12} md={5} className="px-3 px-md-5">
+          <AnimationTitles title="Program Tabungan" />
           <p>
             <b>1. Fleksibilitas Pembayaran:</b>
-            <br /> Nikmati kemudahan pembayaran dengan opsi angsuran yang dapat
+            <br /> Nikmati kemudahan pembayaran dengan opsi tabungan yang dapat
             disesuaikan dengan keuangan Anda.
           </p>
-          <br />
           <p>
-            <b>2. Sapi Berkualitas:</b> <br /> Dapatkan sapi berkualitas tanpa
-            harus membayar secara tunai secara penuh di awal.
+            <b>2. Hewan Berkualitas:</b>
+            <br /> Dapatkan hewan qurban berkualitas dengan kelengkapan vaksin dan vitamin.
           </p>
-          <br />
           <p>
-            <b>3. Dukungan Pertumbuhan Bisnis: </b> <br /> Program ini dirancang
-            untuk mendukung impian peternak dalam memulai atau memperluas
-            kawanan sapi mereka.
+            <b>3. Dukungan Pertumbuhan Bisnis:</b>
+            <br /> Program ini dirancang untuk mendukung impian peternak dalam memulai atau mengembangkan
+            hasil ternak hewan qurban mereka.
           </p>
-          <br />
           <p>
-            <b>4. Solusi Keuangan Terjangkau:</b> <br />
-            Kami menawarkan solusi keuangan yang terjangkau untuk membantu Anda
-            mengembangkan bisnis peternakan tanpa beban keuangan yang berat.
+            <b>4. Solusi Keuangan Terjangkau:</b>
+            <br /> Kami menawarkan solusi pembayaran yang terjangkau untuk membantu Anda dalam menyesuaikan urusan duniawi maupun akhirat.
           </p>
-          <br />
         </Col>
-        <Col md={1} />
-        <Col md={6} className="px-5">
+        <Col xs={12} md={6} className="px-3 px-md-5">
           <Swiper
             slidesPerView={1}
             grabCursor={true}
@@ -57,9 +50,18 @@ function Cicilan() {
             navigation={true}
             modules={[Pagination, Navigation]}
             className="mySwiper mt-4"
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+            }}
           >
             <SwiperSlide>
-              {" "}
               <Card className="bg-black-100 rounded">
                 <Card.Body className="p-2">
                   <Row>
@@ -72,46 +74,16 @@ function Cicilan() {
                     </Col>
                     <Col md={8}>
                       <h5 className="mt-2 fw-normal">Sapi Limosin</h5>
-                      <h4 className=" xl">Rp 200,000,000</h4>
+                      <h4 className="xl">Rp 200,000,000</h4>
                     </Col>
                   </Row>
                 </Card.Body>
               </Card>
             </SwiperSlide>
-            <SwiperSlide>
-              <Card className="bg-black-100 rounded">
-                <Card.Body className="p-1">
-                  <Row>
-                    <Col md={4}>
-                      <Image
-                        className="w-100"
-                        alt="img"
-                        src={require("../images/sapi-product/sapi2.png")}
-                      />
-                    </Col>
-                    <Col md={8}>
-                      <h5 className="mt-2 fw-normal">Sapi Limosin</h5>
-                      <h4 className=" xl">Rp 200,000,000</h4>
-                    </Col>
-                  </Row>
-                </Card.Body>
-              </Card>
-            </SwiperSlide>
+            {/* Ulangi SwiperSlide untuk setiap slide yang Anda ingin tampilkan */}
           </Swiper>
-          <br />
           <p>Pilihan cicilan bulanan sudah termasuk ujrah kafalah Rp 589,000</p>
-          <h5 className="h2">24 x Rp 20,000,000 </h5>
-          <h6>Tanggal 02 Januari 2024 s.d. 02 Desember 2025</h6>
-          <br />
-          <h5 className="h2">18 x Rp 20,000,000 </h5>
-          <h6>Tanggal 02 Januari 2024 s.d. 02 Desember 2025</h6>
-          <br />
-          <h5 className="h2">12 x Rp 20,000,000 </h5>
-          <h6>Tanggal 02 Januari 2024 s.d. 02 Desember 2025</h6>
-          <br />
-          <h5 className="h2">6 x Rp 20,000,000 </h5>
-          <h6>Tanggal 02 Januari 2024 s.d. 02 Desember 2025</h6>
-          <br />
+          {/* Detail cicilan */}
         </Col>
       </Row>
     </div>

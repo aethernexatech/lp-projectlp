@@ -55,10 +55,8 @@ function Loading() {
             <span style={{ color: '#FFFFFF' }}>SEMUA BISA </span>
           </AnimationTitles>
 
-
-
           <p className="mt-3">
-            Ternakita : Solusi Digital Inovatif, 
+            Ternakita : Solusi Digital Inovatif,
             Memudahkan Qurban Anda, Membantu Peternak,
             Kapanpun, Dimanapun. Momen Qurban Lebih Bermakna, Terjangkau, Untuk Kita Semua.
           </p>
@@ -80,8 +78,8 @@ function Loading() {
         <Image
           src={require("../images/illustration/wa.png")}
           alt="WhatsApp"
-          width={50}
-          height={50}
+          width={40}
+          height={40}
         />
       </Button>
     </div>

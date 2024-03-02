@@ -9,7 +9,9 @@ function Keunggulan() {
   return (
     <div className="join">
       <Container>
-        <AnimationTitles className="title mx-auto" title="Keunggulan Kami." />
+        <AnimationTitles className="title mx-auto" size="28px" weight="700">
+          <span style={{ color: '#6b8b65' }}> Keunggulan Ternakita </span>&nbsp;
+        </AnimationTitles>
         <motion.div
           initial={{ x: -200 }}
           animate={{ x: 0 }}

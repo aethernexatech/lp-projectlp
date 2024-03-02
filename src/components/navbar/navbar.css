@@ -13,6 +13,7 @@
 
 .navbar {
   background-color: white;
+  min-height: 80px;
 }
 
 .nav-link:hover {
@@ -21,6 +22,11 @@
 
 .navbar-toggler:focus {
   box-shadow: none;
+}
+
+.logo {
+  height: 30px; 
+  width: auto;
 }
 
 @media (max-width: 992px) {

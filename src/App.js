@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import Investasi from "./pages/Investasi";
+import Galery from "./pages/Galery";
 import NavBar from "./components/navbar/Navbar";
 import Paket from "./pages/Paket";
 import Footer from "./pages/Footer";
@@ -20,9 +20,9 @@ function App() {
         <Header />
         <Tentang />
         <Keunggulan />
-        <Investasi />
         <Produk />
         <Paket />
+        {/* <Galery /> */}
         {/* <Cicilan /> */}
         <Hubungi />
         <Faq />
