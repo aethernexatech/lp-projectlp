@@ -83,12 +83,12 @@ function Hubungi() {
               <Col className="testContact">
                 <p>
                   <span style={{ fontSize: "20px", fontWeight: 700 }}>
-                    Dengan
+                    Dengan Ternakita
                   </span>{" "}
-                  Belisapi saya juga makin semangat dalam memelihara kambing
+                  saya juga makin semangat dalam memelihara sapi
                   saya, karena tau ada banyak orang yang peduli untuk ber-kurban
-                  dengan kambing peliharaan saya dan saya dipercaya sebagai
-                  mitra mereka dalam menyediakan hewan kurban, saya doakan semua
+                  dan saya dipercaya sebagai
+                  mitra untuk menyediakan hewan kurban, saya doakan semua
                   sehat-sehat dan mendapat keberkahan. Amin
                 </p>
               </Col>
@@ -105,7 +105,7 @@ function Hubungi() {
                 </Col>
                 <Col xs={10}>
                   <h5 className="text-white" style={{ fontWeight: 500 }}>
-                    Abdul
+                    Bapak Kodir
                   </h5>
                   <p
                     className="text-white"

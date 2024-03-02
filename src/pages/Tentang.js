@@ -19,18 +19,16 @@ function Tentang() {
         <Container>
           <Row>
             <Col xl={6} className="align-center mt-5">
-              <AnimationTitles title="Tentang Belisapi." />
+              <AnimationTitles title="Tentang Ternakita." />
               <p>
-                SEBISAKU adalah platform terdepan yang didedikasikan untuk
-                memudahkan dan memberdayakan individu dalam menabung untuk
-                Kurban dengan fokus utama pada kebutuhan dan keinginan konsumen
+              Program "Qurban Mudah Kita Semua Bisa" dari ternakita.com 
+              hadir untuk memudahkan masyarakat dalam melaksanakan ibadah qurban. 
+              Hadir dengan solusi praktis melalui pemesanan hewan qurban secara online dapat menghemat  waktu, 
+              biaya dan proses pembelian.
               </p>
               <h6>
-                SEBISAKU didedikasikan untuk memberikan pengalaman menabung
-                Kurban yang mudah dan tidak memberatkan pengguna. Kami memahami
-                kebutuhan dan preferensi individu, dan kami berkomitmen untuk
-                memberdayakan setiap pengguna kami dalam menunaikan ibadah
-                Kurban dengan cara yang paling nyaman dan bermakna
+              Keunggulan program kita ini adalah sistem pembayaran yang mudah dan menyesuaikan dengan kebutuhan anda serta fleksibilitas dalam memilih jenis hewan qurban. 
+              Program ini hadir untuk meningkatkan partisipasi masyarakat dalam melakukan ibadah qurban dan memberikan dampak positif dilingkungan masyarakat pada saat hari raya qurban (idul adha).
               </h6>
               <Row>
                 <Col xs={4} className="d-flex justify-content-center">

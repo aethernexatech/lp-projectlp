@@ -1,40 +1,46 @@
 import { motion } from "framer-motion";
+import React from 'react';
 
-function AnimationTitles({ title, className }) {
-  const hVariants = {
-    hidden: {
-      opacity: 0,
-    },
+function AnimationTitles({ children, className, size = "2rem", weight = "bold" }) {
+  // Variants for the container that holds the entire content
+  const containerVariants = {
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.05 },
     },
   };
 
-  const spanVariants = {
-    hidden: {
-      opacity: 0,
-    },
+  const textStyle = {
+    fontSize: size,
+    fontWeight: weight,
+    color: '#e9c636', // Contoh warna, sesuaikan bila perlu
+  };
+
+  // Variants for each child (could be text or a JSX element)
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
+      y: 0,
+      transition: { type: "spring", damping: 16, stiffness: 200 },
     },
   };
 
   return (
-    <motion.h1
-      variants={hVariants}
+    <motion.div
+      variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       className={className}
+      style={textStyle}
     >
-      {title.split("").map((char, index) => (
-        <motion.span variants={spanVariants} key={index}>
-          {char}
+      {React.Children.map(children, (child, index) => (
+        <motion.span key={index} variants={childVariants} style={{ display: "inline-block" }}>
+          {child}
         </motion.span>
       ))}
-    </motion.h1>
+    </motion.div>
   );
 }
 

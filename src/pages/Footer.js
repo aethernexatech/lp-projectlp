@@ -11,7 +11,7 @@ function Footer() {
         transition={{ duration: 0.2 }}
         className="mb-5"
       >
-        <h1>Beli Sapi Mudah Bersama Belisapi.com</h1>
+        <h1>Beli Qurban Mudah Bersama Ternakita</h1>
         <Button className="buttonHub">Hubungi +628-9991-991</Button>
       </motion.div>
       <motion.div
@@ -26,7 +26,7 @@ function Footer() {
           {" | "}
           Syarat Ketentuan {" | "} Design by{" "}
           <Link className="text-white link-underline-opacity-0" to={""}>
-            AthernaNexa
+            AetherNexaTechnology
           </Link>
         </p>
       </motion.div>
