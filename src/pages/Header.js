@@ -60,7 +60,10 @@ function Loading() {
             Memudahkan Qurban Anda, Membantu Peternak,
             Kapanpun, Dimanapun. Momen Qurban Lebih Bermakna, Terjangkau, Untuk Kita Semua.
           </p>
-          <Button variant="primary" className="mt-4">Qurban Sekarang!</Button>
+          <Button variant="primary" className="mt-4"
+              type="submit"
+              onClick={() => getWhatsApp()}>
+              Qurban Sekarang!</Button>
         </motion.div>
       </Container>
       <Button

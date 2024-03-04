@@ -60,7 +60,7 @@ function Hubungi() {
                   type="number"
                   id="phone"
                   maxLength={12}
-                  placeholder="Nomor Handphone / WA"
+                  placeholder="No. WhastApp"
                 />
                 <br />
                 <Form.Control

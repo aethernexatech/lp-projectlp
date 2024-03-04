@@ -48,7 +48,7 @@ function Faq() {
             return (
               <Accordion.Item eventKey={index}>
                 <Accordion.Header>{item.question}</Accordion.Header>
-                <Accordion.Body>{item.answer}</Accordion.Body>
+                <Accordion.Body style={{ backgroundColor: '#f2f4f7' }}>{item.answer}</Accordion.Body>
               </Accordion.Item>
             );
           })}

@@ -33,6 +33,29 @@ function Produk() {
     }
   };
 
+  const getWhatsApp = async (productName, minWeight, maxWeight, age_year, age_month) => {
+    try {
+      const response = await axios(`${process.env.REACT_APP_API_URL}${'wa-rotator'}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'GET',
+      });
+  
+      const message = `Saya ingin menanyakan produk ${productName}, berat: ${minWeight}-${maxWeight} kg, usia: ${age_year} tahun, ${age_month} bulan.`;
+      const whatsappURL = `https://wa.me/${response.data.data.phone}?text=${encodeURIComponent(message)}`;
+  
+      return window.open(
+        whatsappURL,
+        '_blank',
+        'rel=noopener noreferrer'
+      );
+    } catch (error) {
+      console.error('Error fetching WhatsApp number:', error);
+    }
+  };
+  
+
   useEffect(() => {
     getProduct();
   }, []);
@@ -94,15 +117,19 @@ function Produk() {
                     <br></br>
                     <h5 style={cardTitleStyle}>{item.name}</h5>
                     <div style={cardTextStyle}>
-                      <div>Umur: 2 Tahun</div>
+                      <div>Usia: {item.age_year} Tahun, {item.age_month} Bulan</div>
                       <div>Berat: {item.min_weight} - {item.max_weight} kg</div>
                     </div>
                     <br></br>
                     <h4 style={cardTextStyle}>
                       Rp. {formatNumberWithout(item.price)}
                     </h4>
-                    <Button className="w-100 mt-4" style={{ backgroundColor: "#597e52", border: "0px" }}>
-                      Lihat Detail
+                    <Button className="w-100 mt-4" 
+                      style={{ backgroundColor: "#597e52", border: "0px" }}
+                      type="submit"
+                      onClick={() => getWhatsApp(item.name, item.min_weight, item.max_weight, item.age_year,item.age_month)}
+                      >
+                      Tanya Produk
                     </Button>
                   </Card.Body>
                 </Card>
