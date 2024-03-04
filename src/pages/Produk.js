@@ -95,7 +95,7 @@ function Produk() {
                     <h5 style={cardTitleStyle}>{item.name}</h5>
                     <div style={cardTextStyle}>
                       <div>Umur: 2 Tahun</div>
-                      <div>Berat: {item.weight} - {item.weight + 30} kg</div>
+                      <div>Berat: {item.min_weight} - {item.max_weight} kg</div>
                     </div>
                     <br></br>
                     <h4 style={cardTextStyle}>
