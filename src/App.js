@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import Galery from "./pages/Galery";
 import NavBar from "./components/navbar/Navbar";
 import Paket from "./pages/Paket";
+import Agency from "./pages/Agency";
 import Footer from "./pages/Footer";
 import Keunggulan from "./pages/Keunggulan";
 import Header from "./pages/Header";
@@ -18,10 +19,11 @@ function App() {
       <BrowserRouter>
         {/* <NavBar /> */}
         <Header />
-        <Tentang />
         <Keunggulan />
         <Produk />
         <Paket />
+        <Agency />
+        <Tentang />
         {/* <Galery /> */}
         {/* <Cicilan /> */}
         <Hubungi />

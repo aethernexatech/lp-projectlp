@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Button, Container, Image } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from 'framer-motion';
@@ -26,6 +26,19 @@ function Loading() {
       );
     } catch (error) {
       console.error('Error fetching WhatsApp number:', error);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
     }
   };
 
@@ -81,8 +94,8 @@ function Loading() {
         <Image
           src={require("../images/illustration/wa.png")}
           alt="WhatsApp"
-          width={40}
-          height={40}
+          width={45}
+          height={45}
         />
       </Button>
     </div>

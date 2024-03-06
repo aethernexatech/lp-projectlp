@@ -80,7 +80,8 @@ function Produk() {
     <div className="properties">
       <Container>
         <AnimationTitles className="title mx-auto" size="28px" weight="700">
-          <span style={{ color: '#6b8b65' }}>Pilih Qurbanmu!</span>
+            <motion.span style={{  color: '#e9c535', fontWeight: 'Bold' }}>Pilih </motion.span>&nbsp;
+            <span style={{ color: '#6b8b65', fontWeight: 'Normal' }}> Qurbanmu! </span>
         </AnimationTitles>
         <p>
           Memilih hewan qurban pada Idul Adha bukan hanya soal praktis, tetapi juga nilai-nilai mendalam. Keputusan ini mencerminkan keterlibatan dan kepedulian pada sesama, serta pelaksanaan perintah agama.
@@ -106,7 +107,7 @@ function Produk() {
             modules={[Pagination, Navigation]}
             className="mySwiper mt-4"
           >
-            {product.map((item, index) => (
+            {product.filter(item => item.type === 1).map((item, index) => (
               <SwiperSlide key={index}>
                 <Card className="bg-black-100 rounded">
                   <Card.Body className="p-2">
@@ -117,7 +118,7 @@ function Produk() {
                     <br></br>
                     <h5 style={cardTitleStyle}>{item.name}</h5>
                     <div style={cardTextStyle}>
-                      <div>Usia: {item.age_year} Tahun, {item.age_month} Bulan</div>
+                      <div>Usia: {item.age_year} Thn, {item.age_month} Bln</div>
                       <div>Berat: {item.min_weight} - {item.max_weight} kg</div>
                     </div>
                     <br></br>
@@ -134,6 +135,58 @@ function Produk() {
                   </Card.Body>
                 </Card>
               </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+        <motion.div initial={{ x: -80 }} whileInView={{ x: 0 }} transition={{ duration: 0.2 }}>
+          <Swiper
+            slidesPerView={5}
+            spaceBetween={15}
+            grabCursor={true}
+            loop={true}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            breakpoints={{
+              0: { slidesPerView: 2 },
+              520: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
+              992: { slidesPerView: 4 },
+              1198: { slidesPerView: 5 },
+            }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
+            className="mySwiper mt-4"
+          >
+            {product.filter(item => item.type === 2).map((item, index) => (
+            <SwiperSlide key={index}>
+              <Card className="bg-black-100 rounded">
+                <Card.Body className="p-2">
+                  <div className="rounded overflow-hidden position-relative">
+                    <Card.Img variant="top" src={item.image} style={cardImgStyle} />
+                    <i className="fa-regular fa-heart like" onClick={like}></i>
+                  </div>
+                  <br></br>
+                  <h5 style={cardTitleStyle}>{item.name}</h5>
+                  <div style={cardTextStyle}>
+                    <div>Usia: {item.age_year} Thn, {item.age_month} Bln</div>
+                    <div>Berat: {item.min_weight} - {item.max_weight} kg</div>
+                  </div>
+                  <br></br>
+                  <h4 style={cardTextStyle}>
+                    Rp. {formatNumberWithout(item.price)}
+                  </h4>
+                  <Button className="w-100 mt-4" 
+                    style={{ backgroundColor: "#597e52", border: "0px" }}
+                    type="submit"
+                    onClick={() => getWhatsApp(item.name, item.min_weight, item.max_weight, item.age_year,item.age_month)}
+                    >
+                    Tanya Produk
+                  </Button>
+                </Card.Body>
+              </Card>
+            </SwiperSlide>
             ))}
           </Swiper>
         </motion.div>

@@ -40,7 +40,7 @@ function Faq() {
   return (
     <div className="faq">
       <Container>
-        <AnimationTitles className="title mx-auto" size="25px" weight="700">
+        <AnimationTitles className="title mx-auto" size="24px" weight="700">
           <span style={{ color: '#6b8b65' }}> Pertanyaan yang Sering Diajukan (FAQ)</span>&nbsp;
         </AnimationTitles>
         <Accordion defaultActiveKey="0">

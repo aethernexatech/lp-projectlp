@@ -14,8 +14,9 @@ function Paket() {
         >
           <Row className="d-flex align-item-start">
             <Col md={4} className="mt-5 text-center text-lg-start">
-            <AnimationTitles size="25px" weight="700">
-                <span style={{ color: '#6b8b65' }}>Promo & Bonus</span>&nbsp;
+              <AnimationTitles size="25px" weight="700">
+                <motion.span style={{  color: '#e9c535', fontWeight: 'Bold' }}>Promo </motion.span>&nbsp;
+                <span style={{ color: '#6b8b65', fontWeight: 'Bold' }}> & Bonus </span>
               </AnimationTitles>
               <p className="mt-3 text-center text-lg-start">
                 Raih kesempatan istimewa dengan promo dan bonus menarik saat

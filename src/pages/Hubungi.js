@@ -5,33 +5,38 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Hubungi() {
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+
   const getWhatsApp = async () => {
     try {
-      const response = await axios(
-        `${process.env.REACT_APP_API_URL}${"contact-us"}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          data: JSON.stringify({
-            name: document.getElementById("name").value,
-            phone: document.getElementById("phone").value,
-            message: document.getElementById("message").value,
-            program_id: 1,
-            product_id: 1,
-          }),
-          method: "POST",
-        }
+      const response = await axios(`${process.env.REACT_APP_API_URL}${'wa-rotator'}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'GET',
+      });
+  
+      const whatsappMessage = `Saya, ${name} ingin bertanya: ${message}.`;
+      const whatsappURL = `https://wa.me/${response.data.data.phone}?text=${encodeURIComponent(whatsappMessage)}`;
+  
+      window.open(
+        whatsappURL,
+        '_blank',
+        'rel=noopener noreferrer'
       );
-
-      return window.open(
-        `https://wa.me/${response.data.data.phone}?text=Halo Saya ${
-          document.getElementById("name").value
-        }, saya ingin bertanya tentang program TernaKita`,
-        "_blank",
-        "rel=noopener noreferrer"
-      );
-    } catch (error) {}
+    } catch (error) {
+      console.error('Error fetching WhatsApp number:', error);
+    }
   };
 
   return (
@@ -54,28 +59,34 @@ function Hubungi() {
                   type="text"
                   placeholder="Nama Lengkap"
                   id="name"
+                  value={name}
+                  onChange={handleNameChange}
                 />
-                <br />
+                {/* <br />
                 <Form.Control
                   type="number"
                   id="phone"
                   maxLength={12}
                   placeholder="No. WhastApp"
-                />
+                  
+                /> */}
                 <br />
                 <Form.Control
                   type="text"
                   id="message"
                   maxLength={12}
                   placeholder="Pesan"
+                  value={message}
+                  onChange={handleMessageChange}
                 />
                 <br />
                 <Button
                   className="w-100 buttonCon"
                   type="submit"
-                  onClick={() => getWhatsApp()}
+                  // onClick={() => getWhatsApp()}
+                  onClick={getWhatsApp}
                 >
-                  Hubungi
+                  Kirim
                 </Button>
               </Col>
             </Col>
