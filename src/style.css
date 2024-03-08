@@ -31,7 +31,7 @@ body {
 
 /* Button hover effect */
 #back-to-top-btn:hover {
-  background-color: #0056b3; /* Change background color on hover */
+  background-color: #6b8b65; /* Change background color on hover */
 }
 
 .title {
@@ -89,7 +89,7 @@ body {
 .swiper-button-next:after {
   font-size: 20px;
   padding: 10px 15px;
-  background-color: #eeeded;
+  background-color: #ffffff;
   border-radius: 50%;
 }
 
@@ -556,7 +556,7 @@ footer div h1 {
   padding-inline: 30px;
   border-radius: 30px;
   padding-block: 15px;
-  box-shadow: 0.5px 5px #fbf6ee;
+  box-shadow: 0.5px 5px #000000;
   text-align: center;
   background-color: #43766c;
 }

@@ -2,7 +2,7 @@ import { Button, Container, Col, Row, Image } from "react-bootstrap";
 import { motion } from "framer-motion";
 import AnimationTitles from "../components/functions/AnimationTitles";
 
-function Investasi() {
+function Galery() {
   return (
     <div className="about">
       <Container>
@@ -13,14 +13,15 @@ function Investasi() {
         >
           <Row className="d-flex justify-content-between">
             <Col md={4}>
-              <AnimationTitles title="Galery Belisapi." />
+              <AnimationTitles size="28px" weight="700">
+                <span style={{ color: '#6b8b65' }}>Galeri Kegiatan</span>
+          </AnimationTitles>
             </Col>
             <Col md={2} />
             <Col md={6}>
               <p>
-                Investasi sapi qurban adalah sumbangan hewan, biasanya sapi,
-                pada Idul Adha. Selain nilai ibadah, ini juga investasi sosial
-                untuk manfaat masyarakat. <a herf="#">Pelajari Lebih Lanjut</a>
+                Ternakita memastikan seluruh hewan ternak untuk berqurban telah bersertifikasi.
+                {/* <a herf="#"> Lihatt Lebih Lanjut</a> */}
               </p>
             </Col>
           </Row>
@@ -68,4 +69,4 @@ function Investasi() {
   );
 }
 
-export default Investasi;
+export default Galery;

@@ -1,88 +1,101 @@
-import { Button, Card, Container, Image } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import CountDown from "../components/functions/CountDown";
-import { motion } from "framer-motion";
-import AnimationTitles from "../components/functions/AnimationTitles";
-import AnimationTitlesH2 from "../components/functions/AnimationTitlesH2";
-import sapi from "../images/headers/sapi-header.jpg";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Button, Container, Image } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { motion } from 'framer-motion';
+import AnimationTitles from '../components/functions/AnimationTitles';
+import axios from 'axios';
+
+
 
 function Loading() {
-  const [numberPhone, setNumberPhone] = useState({});
   const [isVisible, setIsVisible] = useState(false);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const getWhatsApp = async () => {
     try {
-      const response = await axios(
-        `${process.env.REACT_APP_API_URL}${"wa-rotator"}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "GET",
-        }
-      );
+      const response = await axios(`${process.env.REACT_APP_API_URL}${'wa-rotator'}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'GET',
+      });
 
       return window.open(
         `https://wa.me/${response.data.data.phone}`,
-        "_blank",
-        "rel=noopener noreferrer"
+        '_blank',
+        'rel=noopener noreferrer'
       );
-    } catch (error) {}
+    } catch (error) {
+      console.error('Error fetching WhatsApp number:', error);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
   };
 
   return (
     <div className="loading position-relative">
-      <Image src={sapi} className="imageHeader" />
+      <Image src={require('../images/headers/sapi-header.jpg')} className="imageHeader w-100" />
       <Container
         id="container-header"
-        className="align-items-center gap-md-5 flex-column flex-md-row mt-3 mt-xl-4 overflow-hidden pb-3"
+        className="d-flex align-items-center gap-md-5 flex-column flex-md-row mt-3 mt-xl-4 overflow-hidden pb-3 text-center text-md-start"
       >
         <motion.div
           initial={{ x: -400 }}
           animate={{ x: 0 }}
           transition={{ duration: 0.2 }}
+          className="w-100"
         >
           <Image
-            src={require("../images/logo/logo.png")}
-            className="img-logo"
+            src={require("../images/logo/ternakita.png")}
+            alt="Ternakita Logo"
+            className="img-logo mb-3"
+            style={{ width: '150px', height: 'auto', maxWidth: '100%' }}
           />
-          <AnimationTitles title="Qurban Pilihan Kita, Berkah untuk Kita Semua" />
-          <br />
-          <p>
-            “Daging-daging unta dan darahnya itu sekali-kali tidak dapat
-            mencapai (keridhaan) Allah, tetapi ketakwaan dari kalianlah yang
-            dapat mencapainya. Demikianlah Allah telah menundukkannya untuk
-            kalian supaya kalian mengagungkan Allah terhadap hidayah-Nya kepada
-            kalian. Dan berilah kabar gembira kepada orang-orang yang berbuat
-            baik." (QS; Al - Hajj : 37)
+          <AnimationTitles size="32px" weight="700">
+            <motion.span>QURBAN </motion.span>&nbsp;
+            <span style={{ color: '#FFFFFF' }}> MUDAH </span>&nbsp;
+            <motion.span>KITA</motion.span>&nbsp;
+            <span style={{ color: '#FFFFFF' }}>SEMUA BISA </span>
+          </AnimationTitles>
+
+          <p className="mt-3">
+            Ternakita : Solusi Digital Inovatif,
+            Memudahkan Qurban Anda, Membantu Peternak,
+            Kapanpun, Dimanapun. Momen Qurban Lebih Bermakna, Terjangkau, Untuk Kita Semua.
           </p>
-          <br />
-          <Button>Qurban Sekarang!</Button>
+          <Button variant="primary" className="mt-4"
+              type="submit"
+              onClick={() => getWhatsApp()}>
+              Qurban Sekarang!</Button>
         </motion.div>
       </Container>
       <Button
         style={{
-          position: "fixed",
-          bottom: "5%",
-          right: "3%",
-          zIndex: "1",
-          backgroundColor: "transparent",
-          border: "0px",
+          position: 'fixed',
+          bottom: '5%',
+          right: '3%',
+          zIndex: 1,
+          backgroundColor: 'transparent',
+          border: '0px',
         }}
-        onClick={() => getWhatsApp()}
-        title="Go to top"
+        onClick={getWhatsApp}
+        title="Chat via WhatsApp"
       >
         <Image
           src={require("../images/illustration/wa.png")}
-          width={70}
-          height={70}
+          alt="WhatsApp"
+          width={45}
+          height={45}
         />
       </Button>
     </div>

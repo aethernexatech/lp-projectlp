@@ -36,13 +36,15 @@ function Faq() {
   return (
     <div className="faq">
       <Container>
-        <AnimationTitles title="Pertanyaan yang Sering Diajukan (FAQ)." />
+        <AnimationTitles className="title mx-auto" size="24px" weight="700">
+          <span style={{ color: '#6b8b65' }}> Pertanyaan yang Sering Diajukan (FAQ)</span>&nbsp;
+        </AnimationTitles>
         <Accordion defaultActiveKey="0">
           {faq.map((item, index) => {
             return (
               <Accordion.Item eventKey={index}>
                 <Accordion.Header>{item.question}</Accordion.Header>
-                <Accordion.Body>{item.answer}</Accordion.Body>
+                <Accordion.Body style={{ backgroundColor: '#f2f4f7' }}>{item.answer}</Accordion.Body>
               </Accordion.Item>
             );
           })}
