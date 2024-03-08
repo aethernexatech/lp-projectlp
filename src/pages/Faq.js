@@ -17,14 +17,10 @@ function Faq() {
   }
 
   const getFaq = async (param) => {
-    const parameter = param ?? "";
-    const token =
-      "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJsdW1lbi1qd3QiLCJzdWIiOjEsImlhdCI6MTcwODQxMjcxNCwiZXhwIjoxNzExMDA0NzE0fQ.Qf3QSYOWsBRejYUmtiBzl4b3ORZtgwOvp75Hb18HmCY";
     try {
       const response = await axios(`${process.env.REACT_APP_API_URL}${"faq"}`, {
         headers: {
           "Content-Type": "application/json",
-          token: token,
         },
         method: "GET",
       });

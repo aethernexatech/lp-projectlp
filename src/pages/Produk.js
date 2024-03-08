@@ -36,7 +36,11 @@ function Produk() {
         }
       );
 
-      setProduct(response.data.data);
+      if (response.data.status) {
+        setProduct(response.data.data.data);
+      } else {
+        setProduct([]);
+      }
     } catch (error) {}
   };
 
