@@ -27,7 +27,7 @@ function Produk() {
         },
         method: "GET",
       });
-      if (response.data.data.status) {
+      if (response.data.status) {
         setProduct(response.data.data.data);
       } else {
         setProduct([]);
