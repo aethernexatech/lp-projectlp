@@ -22,7 +22,7 @@ function Produk() {
   const getProduct = async () => {
     try {
       const response = await axios(
-        `${process.env.REACT_APP_API_URL}product/catalog`,
+        `${process.env.REACT_APP_API_URL}get/catalog`,
         {
           headers: {
             "Content-Type": "application/json",
