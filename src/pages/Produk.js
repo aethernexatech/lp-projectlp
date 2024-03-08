@@ -27,7 +27,11 @@ function Produk() {
         },
         method: "GET",
       });
-      setProduct(response.data.data);
+      if (response.data.data.status) {
+        setProduct(response.data.data.data);
+      } else {
+        setProduct([]);
+      }
     } catch (error) {
       console.error(error);
     }
