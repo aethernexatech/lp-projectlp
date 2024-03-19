@@ -99,52 +99,54 @@ body {
 
 /* End swiper style */
 
-/* Start footer */
+/* Start header */
 
-footer {
-  padding-top: 20px;
-  padding-inline: 15px;
-  background-color: #597e52;
-  text-align: center;
+.header .img-web {
+  width: 100%;
 }
 
-footer div p {
-  color: white;
+.header .img-mobile {
+  width: 100%;
 }
 
-footer div h1 {
-  text-align: center;
-  color: white;
-  font-weight: 900;
-}
-
-.buttonHub {
-  text-align: left;
-  font-weight: 900;
-  color: white;
-  border: 0;
-  padding-inline: 30px;
+.header .btn-agen {
+  width: 60%;
+  background-color: white;
+  border: 2px solid #436850;
   border-radius: 30px;
-  padding-block: 15px;
-  box-shadow: 0.5px 5px #000000;
+  box-shadow: #436850 4px 4px 0 0;
+  color: #436850;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
   text-align: center;
-  background-color: #43766c;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-.line-top {
-  border-top: 0.5px solid white;
+.header .btn-agen:hover {
+  background-color: #fff;
 }
 
-footer div p {
-  font-size: 14px;
+.header .btn-agen:active {
+  box-shadow: white 2px 2px 0 0;
+  transform: translate(2px, 2px);
 }
 
-/* End footer */
+/* end header */
 
 /* Start media query */
 
 /* Small */
 @media (max-width: 768px) {
+  .header .btn-agen {
+    width: 100%;
+  }
 }
 
 /* medium */
