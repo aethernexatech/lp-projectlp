@@ -35,7 +35,7 @@ function Footer() {
       >
         <motion.span style={{ color: "black", fontWeight: "Bold" }}>
           <h3 className="mb-5">Kontak Kami.</h3>
-          <h6>Perumahan Araya, Malang, Jawa Timur +62812372938.</h6>
+          <h6>Surabaya.</h6>
         </motion.span>
       </AnimationTitles>
       <Row className="d-flex justify-content-center">
