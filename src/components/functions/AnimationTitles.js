@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
-import React from 'react';
+import React from "react";
 
-function AnimationTitles({ children, className, size = "2rem", weight = "bold" }) {
+function AnimationTitles({
+  children,
+  className,
+  size = "5rem",
+  weight = "bold",
+}) {
   // Variants for the container that holds the entire content
   const containerVariants = {
     hidden: { opacity: 1 },
@@ -14,7 +19,7 @@ function AnimationTitles({ children, className, size = "2rem", weight = "bold" }
   const textStyle = {
     fontSize: size,
     fontWeight: weight,
-    color: '#e9c636', // Contoh warna, sesuaikan bila perlu
+    color: "black",
   };
 
   // Variants for each child (could be text or a JSX element)
@@ -36,7 +41,11 @@ function AnimationTitles({ children, className, size = "2rem", weight = "bold" }
       style={textStyle}
     >
       {React.Children.map(children, (child, index) => (
-        <motion.span key={index} variants={childVariants} style={{ display: "inline-block" }}>
+        <motion.span
+          key={index}
+          variants={childVariants}
+          style={{ display: "inline-block" }}
+        >
           {child}
         </motion.span>
       ))}
