@@ -1,0 +1,36 @@
+.line {
+  display: inline-block;
+  width: 1px;
+  height: 24px;
+  background-color: var(--gray-150);
+  margin-right: 100px;
+}
+
+.nav-link {
+  color: black;
+  letter-spacing: 0.3px;
+}
+
+.navbar {
+  background-color: white;
+  min-height: 80px;
+}
+
+.nav-link:hover {
+  color: #a8a8a8;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.logo {
+  height: 30px; 
+  width: auto;
+}
+
+@media (max-width: 992px) {
+  .order {
+    order: -2;
+  }
+}
