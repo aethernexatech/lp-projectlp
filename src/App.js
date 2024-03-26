@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
+import NavBar from "./components/NavBar/NavBar";
 import Footer from "./pages/Footer";
-import Header from "./pages/Header";
+import Hero from "./pages/Hero";
 import About from "./pages/About";
 import Service from "./pages/Service";
 import Portofolio from "./pages/Portofolio";
@@ -12,8 +13,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <NavBar /> */}
-        <Header />
+        <NavBar />
+        <Hero />
         <About />
         <Service />
         <Portofolio />

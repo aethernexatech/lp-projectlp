@@ -4,7 +4,7 @@ import { Button, Col, Container, Image, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-function Header() {
+function Hero() {
   return (
     <div className="header position-relative">
       <Container className="text-center" fluid>
@@ -34,4 +34,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Hero;
